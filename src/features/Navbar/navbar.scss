@@ -1,5 +1,10 @@
+@import '../../theme.scss';
+
 .navbar-container {
     width: 100%;
+    background-color: $--newCommunityTheme-navBar-backgroundColor;
+    position: fixed;
+    top: 0;
 
     .navbar-content {
         height: 50px;
