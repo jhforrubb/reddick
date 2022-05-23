@@ -1,10 +1,11 @@
 import './homepage.scss'
+import TrendingBanner from '../../features/TrendingBanner/TrendingBanner';
 
 const Homepage = () => {
     return (
         <div className="homepage-container">
             <div className="homepage-container-body">
-                <h1 >home page</h1>
+                <TrendingBanner />
             </div>
         </div>
     );
