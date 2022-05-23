@@ -5,7 +5,7 @@ const Homepage = () => {
     return (
         <div className="homepage-container">
             <div className="homepage-container-body">
-                <TrendingBanner />
+                {/* <TrendingBanner /> */}
             </div>
         </div>
     );
