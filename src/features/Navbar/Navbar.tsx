@@ -1,23 +1,52 @@
-import './navbar.scss';
-import Logo from '../Logo/Logo';
 import Searchbar from '../Searchbar/Searchbar';
-import Button from '../../components/Button/Button';
-import Config from '../Config/Config';
+import UserSelect from '../UserSelect/UserSelect';
+import { Flex, Spacer, Button, ButtonGroup, Heading, Box, useMediaQuery } from '@chakra-ui/react'
 
 const Navbar = () => {
-    return (
-        <nav className="navbar-container">
-            <div className="navbar-content">
-                <Logo />
-                <Searchbar />
+    const [isWiderThan1180px] = useMediaQuery("(min-width: 1180px)");
 
-                <div className="navbar-btns">
-                    <Button label="Log In" variant="outlined" size="medium" onClick={() => console.log("open login dialog")} />
-                    <Button style={{ marginLeft: 15 }} label="Sign Up" variant="filled" size="medium" onClick={() => console.log("open register dialog")} />
-                    <Config />
-                </div>
-            </div>
-        </nav>
+    return (
+        <Flex gap='2' alignItems={"center"} pl={5} pr={5} py={2.5} height="50px" bgColor="#FFFFFF">
+            <Heading size="sm">Reddit</Heading>
+            <Spacer />
+            <Searchbar />
+            <Spacer />
+            <ButtonGroup>
+                <Box
+                    as={Button}
+                    size='sm'
+                    w={isWiderThan1180px ? "120px" : ""}
+                    borderWidth="1px"
+                    borderStyle="solid"
+                    borderColor="#0079D3"
+                    color="#0079D3"
+                    borderRadius="9999px"
+                    _hover={{ bg: '#DAE0E6' }}
+                    _focus={{ outline: 'none', boxShadow: 'none' }}
+                    _active={{ outline: 'none', boxShadow: 'none' }}
+                >
+                    Log In
+                </Box>
+
+                <Box
+                    as={Button}
+                    size='sm'
+                    w={isWiderThan1180px ? "120px" : ""}
+                    borderWidth="1px"
+                    borderStyle="solid"
+                    borderColor="#0079D3"
+                    bgColor="#0079D3"
+                    color="#FFFFFF"
+                    borderRadius="9999px"
+                    _hover={{ bg: '#0079D3' }}
+                    _focus={{ outline: 'none', boxShadow: 'none' }}
+                    _active={{ outline: 'none', boxShadow: 'none' }}
+                >
+                    Sign In
+                </Box>
+                <UserSelect />
+            </ButtonGroup>
+        </Flex>
     );
 };
 

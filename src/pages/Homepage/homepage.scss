@@ -1,10 +1,20 @@
+@import '../../theme.scss';
+
 .homepage-container {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
+    padding-top: 20px;
 
     .homepage-container-body {
         width: 70%;
+
+        .homepage-container-header {
+            color: $--newCommunityTheme-navIcon;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+        }
     }
 }
