@@ -9,8 +9,55 @@
         font-weight: 500;
         line-height: 18px;
     }
+
+    .trending-banner-slide {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .trending-card-root {
+    box-sizing: border-box;
+    position: relative;
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
     border-radius: 10px;
+    color: $--newCommunityTheme-lightText;
+    min-width: 250px;
+    max-width: 250px;
+    height: 170px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    padding: 10px;
+
+    .trending-card-info {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 5px;
+
+        .trending-card-title {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 22px;
+        }
+
+        .trending-card-subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 5px;
+            line-height: 20px;
+            max-height: 40px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .trending-card-sub {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            padding-right: 4px;
+        }
+    }
 }
