@@ -14,7 +14,7 @@ const TrendingBanner = () => {
         <Box>
             <Text>Trending Today</Text>
             <HStack gap={1}>
-                {sampleJson.map(el => <TrendingCard key={el.id} title={el.title} subtitle={el.subtitle} sub={el.sub} imgUrl={el.img} />)}
+                {sampleJson.map(el => <TrendingCard key={el.id} title={el.title} subtitle={el.subtitle} sub={el.sub} imgUrl={el.img} isLoading={false} />)}
             </HStack>
         </Box>
     )
