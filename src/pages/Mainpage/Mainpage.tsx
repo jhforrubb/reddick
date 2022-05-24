@@ -1,13 +1,15 @@
-import './mainpage.scss';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../../features/Navbar/Navbar';
+import { Box, Container } from '@chakra-ui/react'
 
 const Mainpage = () => {
     return (
-        <div className="mainpage">
+        <Box bgColor="lightgrey">
             <Navbar />
-            <Outlet />
-        </div>
+            <Container maxW='container.lg'>
+                <Outlet />
+            </Container>
+        </Box>
     );
 };
 

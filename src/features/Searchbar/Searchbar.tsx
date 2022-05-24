@@ -9,11 +9,11 @@ const Searchbar = () => {
     const handleChange = (event: any) => setSearch(event.target.value);
 
     return (
-        <InputGroup w="650px" >
-            <InputLeftElement pointerEvents={"none"} children={<SearchIcon />} />
+        <InputGroup w="650px">
+            <InputLeftElement pointerEvents={"none"} children={<SearchIcon color={"#878A8C"} />} />
             <Input placeholder="Search reddit..." value={search} onChange={handleChange} focusBorderColor='#0079d3' borderColor="#EDEFF1" />
             <InputRightElement>
-                {search.length > 0 && <IconButton aria-label='clear search' variant='unstyled' icon={<SmallCloseIcon />} onClick={() => setSearch("")} />}
+                {search.length > 0 && <IconButton aria-label='clear search' variant='unstyled' icon={<SmallCloseIcon color={"#878A8C"} />} onClick={() => setSearch("")} />}
             </InputRightElement>
         </InputGroup >
     )

@@ -6,7 +6,7 @@ const Navbar = () => {
     const [isWiderThan1180px] = useMediaQuery("(min-width: 1180px)");
 
     return (
-        <Flex gap='2' alignItems={"center"} pl={5} pr={5} py={2.5} height="50px" bgColor="#FFFFFF">
+        <Box as={Flex} gap='2' alignItems={"center"} pl={5} pr={5} py={2.5} height="50px" bgColor="#FFFFFF" position="fixed" width="100vw">
             <Heading size="sm">Reddit</Heading>
             <Spacer />
             <Searchbar />
@@ -46,7 +46,7 @@ const Navbar = () => {
                 </Box>
                 <UserSelect />
             </ButtonGroup>
-        </Flex>
+        </Box>
     );
 };
 

@@ -1,14 +1,11 @@
-import './homepage.scss'
+import { Box } from '@chakra-ui/react'
 import TrendingBanner from '../../features/TrendingBanner/TrendingBanner';
 
 const Homepage = () => {
     return (
-        <div className="homepage-container">
-            <div className="homepage-container-body">
-                {/* <TrendingBanner /> */}
-                <div className="homepage-container-header">Popular posts</div>
-            </div>
-        </div>
+        <Box pt="50px" height="100vh">
+            <TrendingBanner />
+        </Box>
     );
 };
 
