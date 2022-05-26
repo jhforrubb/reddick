@@ -1,5 +1,4 @@
-import React from 'react';
-import { Box, Image, Flex, HStack, Spacer, Button, Center, Skeleton, SkeletonCircle, Stack } from '@chakra-ui/react';
+import { Box, Image, Flex, HStack, Spacer, Button, Center, Skeleton, SkeletonCircle } from '@chakra-ui/react';
 import { ChevronUpIcon } from '@chakra-ui/icons';
 
 type TopCommunitiesProps = {
@@ -53,7 +52,7 @@ const TopCommunities = (props: TopCommunitiesProps) => {
 
                 <Box>
                     {communities.map((el) => (
-                        <Flex padding="10px" borderBlock="1px" borderColor="gray.300" fontSize="small" fontWeight="semibold">
+                        <Flex padding="10px" borderBlock="1px" borderColor="gray.300" fontSize="small" fontWeight="semibold" key={el.id}>
                             <HStack>
                                 <Box w="10px">{el.id + 1}</Box>
                                 <Box w="20px">{el.trending ? <ChevronUpIcon boxSize="1.5em" color="green.400" /> : ''}</Box>
