@@ -12,8 +12,8 @@ const MainLayout = (props: MainLayoutProps) => {
 
     return (
         <Flex direction="row" justifyContent="space-around">
-            <Box width={isWiderThan960px ? "640px" : "100%"} border="1px solid red">{primaryView}</Box>
-            <Box display={isWiderThan960px ? "block" : "none"} width="310px" border="1px solid red">{secondaryView}</Box>
+            <Box width={isWiderThan960px ? "640px" : "100%"} >{primaryView}</Box>
+            <Box display={isWiderThan960px ? "block" : "none"} width="310px" >{secondaryView}</Box>
         </Flex>
     )
 }

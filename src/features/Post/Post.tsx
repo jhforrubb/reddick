@@ -7,7 +7,10 @@ import PostUtilButton from './PostUtilButton';
 import TextPost from './TextPost';
 import VideoPost from './VideoPost';
 
-type PostProps = {
+export type PostType = 'text' | 'video' | 'link'
+
+export type PostProps = {
+    id: string,
     voteCount: number,
     subreddit: string,
     subredditIconUrl: string,
@@ -18,22 +21,22 @@ type PostProps = {
     commentCount: number,
     content: string,
     videoSrc?: string,
-    postType: 'text' | 'video' | 'link'
+    postType: PostType
 }
 
 const Post = (props: PostProps) => {
     const { voteCount, subreddit, user, timestamp, isJoined, title, commentCount, subredditIconUrl, content, postType } = props;
 
     const renderContent = () => {
-        if (postType === "text") {
+        if (postType === 'text') {
             return <TextPost content={content} />
         }
 
-        if (postType === "video") {
+        if (postType === 'video') {
             return <VideoPost content={content} />
         }
 
-        if (postType === "link") {
+        if (postType === 'link') {
             return;
         }
 
