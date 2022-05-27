@@ -4,8 +4,13 @@ import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import PostUtilButton from './PostUtilButton';
+import TextPost from './TextPost';
+import VideoPost from './VideoPost';
 
-type PostProps = {
+export type PostType = 'text' | 'video' | 'link'
+
+export type PostProps = {
+    id: string,
     voteCount: number,
     subreddit: string,
     subredditIconUrl: string,
@@ -14,13 +19,31 @@ type PostProps = {
     isJoined: boolean,
     title: string,
     commentCount: number,
+    content: string,
+    videoSrc?: string,
+    postType: PostType
 }
 
 const Post = (props: PostProps) => {
-    const { voteCount, subreddit, user, timestamp, isJoined, title, commentCount, subredditIconUrl } = props;
+    const { voteCount, subreddit, user, timestamp, isJoined, title, commentCount, subredditIconUrl, content, postType } = props;
+
+    const renderContent = () => {
+        if (postType === 'text') {
+            return <TextPost content={content} />
+        }
+
+        if (postType === 'video') {
+            return <VideoPost content={content} />
+        }
+
+        if (postType === 'link') {
+            return;
+        }
+
+    }
 
     return (
-        <Flex w="100%" direction="row">
+        <Flex w="100%" direction="row" mb="15px" border="1px" borderRadius="5px" borderColor="gray.300" overflow="hidden">
             <Flex w="40px" direction="column" alignItems="center" bgColor="rgba(255,255,255, 0.5)" py="8px">
                 <ArrowUpIcon cursor="pointer" onClick={() => console.log("it should upvote")} />
                 <Text
@@ -44,8 +67,8 @@ const Post = (props: PostProps) => {
                     <Text color="#7c7c7c" fontSize="6px" lineHeight="20px"> • </Text>
                     <Text color="#787C7E" fontSize="12px">Posted by {`u/${user}`} {"8 hours ago"}</Text>
                 </HStack>
-                <Text fontSize="18px" fontWeight="500" lineHeight="22px" pr="5px" color="#878A8C">{title}</Text>
-
+                <Text fontSize="18px" fontWeight="500" lineHeight="22px" pr="5px" color="#878A8C" my="10px">{title}</Text>
+                {renderContent()}
                 <HStack>
                     <PostUtilButton
                         icon={ChatBubbleOutlineOutlinedIcon}
