@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Box, Icon, HStack, Text, Fade, Slider, SliderTrack, SliderFilledTrack, Tooltip } from '@chakra-ui/react';
+import { Box, Icon, HStack, Text, Fade, Slider, SliderTrack, SliderFilledTrack, CircularProgress } from '@chakra-ui/react';
 import moment from 'moment';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -23,6 +23,7 @@ const VideoPost = (props: VideoPostProps) => {
     const [isUtilShown, setIsUtilShown] = useState<boolean>(false);
     const [isVideoTipShown, setIsVideoTipShown] = useState<boolean>(false);
     const [videoTipPos, setVideoTipPos] = useState<number>(0);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         if (isPlaying) {
@@ -44,28 +45,45 @@ const VideoPost = (props: VideoPostProps) => {
             onMouseLeave={() => setIsUtilShown(false)}
         >
             <video
+                id="video"
                 ref={videoEl}
                 muted={true}
                 preload="auto"
                 style={styles.videoStyles}
                 onClick={() => setIsPlaying(prevState => !prevState)}
                 onTimeUpdate={(event) => setVideoPlayTime(event.currentTarget.currentTime)}
+                onLoadedData={() => setIsLoading(false)}
+                controls
             >
                 <source src={content} type="video/mp4" />
             </video>
-            <Icon
-                as={PlayArrowIcon}
-                position="absolute"
-                w="50px"
-                h="50px"
-                top="50%"
-                left="50%"
-                transform="translate(-50%, -50%)"
-                cursor="pointer"
-                color="#FFFFFF"
-                onClick={() => setIsPlaying(true)}
-                display={isPlaying ? "none" : "block"}
-            />
+
+            {isLoading ?
+                <CircularProgress
+                    isIndeterminate
+                    position="absolute"
+                    w="50px"
+                    h="50px"
+                    top="50%"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                />
+                :
+                <Icon
+                    as={PlayArrowIcon}
+                    position="absolute"
+                    w="50px"
+                    h="50px"
+                    top="50%"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    cursor="pointer"
+                    color="#FFFFFF"
+                    onClick={() => setIsPlaying(true)}
+                    display={isPlaying ? "none" : "block"}
+                />
+            }
+
             <Fade in={isUtilShown}>
                 <HStack
                     position="absolute"

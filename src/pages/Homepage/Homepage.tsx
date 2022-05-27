@@ -44,7 +44,7 @@ const Homepage = () => {
             timestamp: new Date().toISOString(),
             isJoined: false,
             commentCount: 50,
-            content: "https://v.redd.it/24kkktgs2l191/HLSPlaylist.m3u8?f=hd&v=1&a=1656071270%2CZDIwNGIxNmViZGEyMTRhYWUwZDc0NTMyMjg4ZDNkYTFiMzI3YWI4NzVmYjkyZmIwNGJmOTNjYjBiZTRmNjZhOA%3D%3D",
+            content: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
             postType: "video",
             title: "Guy Catches Tear Gas Shell Mid Air During Protest In Lahore, Pakistan"
         },
