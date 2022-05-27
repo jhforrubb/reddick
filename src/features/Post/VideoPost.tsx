@@ -45,7 +45,6 @@ const VideoPost = (props: VideoPostProps) => {
             onMouseLeave={() => setIsUtilShown(false)}
         >
             <video
-                id="video"
                 ref={videoEl}
                 muted={true}
                 preload="auto"
@@ -53,7 +52,6 @@ const VideoPost = (props: VideoPostProps) => {
                 onClick={() => setIsPlaying(prevState => !prevState)}
                 onTimeUpdate={(event) => setVideoPlayTime(event.currentTarget.currentTime)}
                 onLoadedData={() => setIsLoading(false)}
-                controls
             >
                 <source src={content} type="video/mp4" />
             </video>
