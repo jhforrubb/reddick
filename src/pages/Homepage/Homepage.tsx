@@ -1,8 +1,10 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Stack } from '@chakra-ui/react';
 import TrendingBanner from '../../features/TrendingBanner/TrendingBanner';
 import MainLayout from '../../layouts/MainLayout';
 import Post from '../../features/Post/Post';
 import TopCommunities from '../../features/TopCommunities/TopCommunities';
+import CategoryCard from '../../features/CategoryCard/CategoryCard';
+import SiteMap from '../../features/SiteMap/SiteMap';
 
 const Homepage = () => {
     const communitiesJson = [
@@ -12,6 +14,12 @@ const Homepage = () => {
         { id: 3, trending: true,icon:'https://styles.redditmedia.com/t5_21of/styles/communityIcon_s3acgrjuyoe81.jpg?format=pjpg&s=6be19403d863b791c4c4e87db4138533f8733b9f', r: 'r/olympics' },
 
     ];
+
+    const categoriesJson=[
+        {id:0,category:'Popular Communities',tag:['AskReddit','StardewValley','AskReddit','AskReddit','AskReddit','StardewValley','AskReddit','AskReddit','AskReddit','StardewValley','AskReddit','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu','Pikachu']},
+        {id:1,category:'Gaming',tag:['StardewValley','AskReddit','AskReddit','AskReddit','AskReddit','AskReddit','AskReddit','AskReddit','AskReddit','AskReddit','StardewValley']},
+        {id:2,category:'Sports',tag:['AskReddit','AskReddit','AskReddit','StardewValley','AskReddit','AskReddit','AskReddit','AskReddit','AskReddit','StardewValley','AskReddit']},
+    ]
 
     return (
         <Box pt="50px" height="100vh">
@@ -32,13 +40,18 @@ const Homepage = () => {
                     </div>
                 }
                 secondaryView={
-                    <div>
+                    <Stack
+                    >
                         <TopCommunities
                             imgUrl="https://www.redditstatic.com/desktop2x/img/leaderboard/banner-background.png"
                             communities={communitiesJson}
                             isLoading={false}
                         />
-                    </div>
+                        <CategoryCard
+                            categories={categoriesJson}
+                        />
+                        <SiteMap />
+                    </Stack>
                 }
             />
         </Box>
