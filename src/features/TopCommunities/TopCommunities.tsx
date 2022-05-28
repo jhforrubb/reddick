@@ -78,13 +78,13 @@ const TopCommunities = (props: TopCommunitiesProps) => {
                 </Center>
 
                 <Box padding="0 8px 12px">
-                    <Button colorScheme="gray" size="sm" fontSize="smaller" borderRadius="15px" margin='4px'>
+                    <Button colorScheme="gray" size="sm" fontSize="smaller" borderRadius="15px" margin="4px">
                         Top
                     </Button>
-                    <Button colorScheme="gray" size="sm" fontSize="smaller" borderRadius="15px" margin='4px'>
+                    <Button colorScheme="gray" size="sm" fontSize="smaller" borderRadius="15px" margin="4px">
                         Near You
                     </Button>
-                    <Button colorScheme="gray" size="sm" fontSize="smaller" borderRadius="15px" margin='4px'>
+                    <Button colorScheme="gray" size="sm" fontSize="smaller" borderRadius="15px" margin="4px">
                         Sports
                     </Button>
                 </Box>
@@ -97,7 +97,6 @@ const TopCommunities = (props: TopCommunitiesProps) => {
             {isLoading ? renderSkeleton() : renderInfo()}
         </Box>
     );
-
 };
 
 export default TopCommunities;
