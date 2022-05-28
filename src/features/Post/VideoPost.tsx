@@ -200,7 +200,7 @@ const VideoPost = (props: VideoPostProps) => {
                 />
             )}
 
-            <Fade in={true}>
+            <Fade in={isUtilShown}>
                 <HStack position="absolute" bottom="0" w="100%" p="20px">
                     <Icon as={ReadMoreIcon} {...styles.iconStyles} onClick={() => console.log('it should take user into the post')} />
                     <Icon
