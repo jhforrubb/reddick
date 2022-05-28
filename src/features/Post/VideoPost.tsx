@@ -53,7 +53,7 @@ const VideoPost = (props: VideoPostProps) => {
         // controls the timestamp when mouse hover over progres bar
         videoPreviewTS.textContent = getTimestampStr((event.nativeEvent.offsetX / videoSlider.clientWidth) * video.duration);
 
-        // TODO: SHOULD CREATE THUMBNAILS FROM SERVER 
+        // TODO: SHOULD CREATE THUMBNAILS FROM SERVER
         // controls the current frame of video videoPreviewCont -> videoPreview
         // let frameTimestamp = (event.nativeEvent.offsetX / videoSlider.clientWidth) * video.duration;
         // if (frameTimestamp < 0) {
@@ -93,7 +93,7 @@ const VideoPost = (props: VideoPostProps) => {
         // appear the video preview after mouse has entered the progress bar
         videoPreviewCont.style.display = 'flex';
         // remove preview snapshot
-        videoPreview.src = "";
+        videoPreview.src = '';
     };
 
     const handleVideoLoadedData = () => {

@@ -1,10 +1,10 @@
-import { Box, Icon } from '@chakra-ui/react'
+import { Box, Icon } from '@chakra-ui/react';
 
 type PostUtilButtonProps = {
-    label: string,
-    icon: any,
-    onClick: () => void
-}
+    label: string;
+    icon: any;
+    onClick: () => void;
+};
 
 const PostUtilButton = (props: PostUtilButtonProps) => {
     const { icon, label, onClick } = props;
@@ -21,14 +21,14 @@ const PostUtilButton = (props: PostUtilButtonProps) => {
             boxSizing="border-box"
             color="#878A8C"
             cursor="pointer"
-            _hover={{ bgColor: "#CCC" }}
+            _hover={{ bgColor: '#CCC' }}
             borderRadius="2px"
             onClick={onClick}
         >
             <Icon as={icon} w="20px" h="20px" mr="4px" />
             {label}
         </Box>
-    )
-}
+    );
+};
 
-export default PostUtilButton
+export default PostUtilButton;
