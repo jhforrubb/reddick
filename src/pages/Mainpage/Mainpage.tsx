@@ -4,7 +4,7 @@ import { Box, Container } from '@chakra-ui/react';
 
 const Mainpage = () => {
     return (
-        <Box bg="#DAE0E6" overflow="scroll">
+        <Box>
             <Navbar />
             <Container maxW="container.lg">
                 <Outlet />
