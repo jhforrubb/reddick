@@ -56,11 +56,15 @@ const LoginModal = (props: LoginModalProps) => {
                         Log In
                     </Text>
                     <Text fontFamily="Noto Sans,sans-serif" fontSize="12px" fontWeight="normal" lineHeight="18px" mt="8px" mb="50px">
-                        <Box as="span">By continuing, you agree to our{' '}</Box>
-                        <Box as="span" color="#0079D3" _hover={{ color: "#3394DC" }} cursor="pointer">User Agreement{' '}</Box>
-                        <Box as="span">and{' '}</Box>
-                        <Box as="span" color="#0079D3" _hover={{ color: "#3394DC" }} cursor="pointer">Privacy Policy</Box>
-                        <Box as="span">.{' '}</Box>
+                        <Box as="span">By continuing, you agree to our </Box>
+                        <Box as="span" color="#0079D3" _hover={{ color: '#3394DC' }} cursor="pointer">
+                            User Agreement{' '}
+                        </Box>
+                        <Box as="span">and </Box>
+                        <Box as="span" color="#0079D3" _hover={{ color: '#3394DC' }} cursor="pointer">
+                            Privacy Policy
+                        </Box>
+                        <Box as="span">. </Box>
                     </Text>
                     <form onSubmit={handleLogin}>
                         <FormControl>
@@ -158,18 +162,16 @@ const LoginModal = (props: LoginModalProps) => {
                             Log In
                         </Box>
                     </form>
-                    <Box
-                        fontFamily="IBMPlexSans,sans-serif"
-                        fontSize="12px"
-                        fontWeight="normal"
-                        lineHeight="18px"
-                        color="#1A1A1B"
-                    >
+                    <Box fontFamily="IBMPlexSans,sans-serif" fontSize="12px" fontWeight="normal" lineHeight="18px" color="#1A1A1B">
                         <Box mt="8px" mb="20px">
-                            <Box as="span">Forgor your{' '}</Box>
-                            <Box as="span" color="#0079D3" _hover={{ color: "#3394DC" }} cursor="pointer">username{' '}</Box>
-                            <Box as="span">or{' '}</Box>
-                            <Box as="span" color="#0079D3" _hover={{ color: "#3394DC" }} cursor="pointer">password</Box>
+                            <Box as="span">Forgor your </Box>
+                            <Box as="span" color="#0079D3" _hover={{ color: '#3394DC' }} cursor="pointer">
+                                username{' '}
+                            </Box>
+                            <Box as="span">or </Box>
+                            <Box as="span" color="#0079D3" _hover={{ color: '#3394DC' }} cursor="pointer">
+                                password
+                            </Box>
                             <Box as="span">?</Box>
                         </Box>
                         <Box mt="8px">
@@ -180,7 +182,7 @@ const LoginModal = (props: LoginModalProps) => {
                                 fontWeight="semibold"
                                 color="#0079D3"
                                 cursor="pointer"
-                                _hover={{ color: "#3394DC" }}
+                                _hover={{ color: '#3394DC' }}
                             >
                                 sign up
                             </Box>
