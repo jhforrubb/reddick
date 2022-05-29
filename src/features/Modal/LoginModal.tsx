@@ -40,9 +40,9 @@ const LoginModal = (props: LoginModalProps) => {
     };
 
     return (
-        <Modal isOpen={isOpen} onClose={() => modalContext.setCurrentModal(ModalType.CLOSED)}>
+        <Modal isOpen={isOpen} onClose={() => modalContext.setCurrentModal(ModalType.CLOSED)} isCentered>
             <ModalOverlay />
-            <ModalContent w="850px" h="650px" maxW="850px" maxH="650px" display="flex" flexDir="row" overflow="hidden">
+            <ModalContent w="850px" h="650px" maxW="850px" maxH="650px" display="flex" flexDir="row" m="0" p="0">
                 <ModalCloseButton />
                 <Box
                     w="130px"
