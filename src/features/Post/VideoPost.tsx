@@ -8,7 +8,7 @@ import ZoomInMapIcon from '@mui/icons-material/ZoomInMap';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import StopIcon from '@mui/icons-material/Stop';
 
-type VideoPostProps = {
+export type VideoPostProps = {
     content: string;
 };
 

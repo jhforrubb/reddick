@@ -6,39 +6,51 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import PostUtilButton from './PostUtilButton';
 import TextPost from './TextPost';
 import VideoPost from './VideoPost';
+import LinkPost from './LinkPost';
+import GifPost from './GifPost';
 
-export type PostType = 'text' | 'video' | 'link';
+export type PostType = 'text' | 'video' | 'link'|'gif';
+
+
 
 export type PostProps = {
-    id: string;
-    voteCount: number;
-    subreddit: string;
-    subredditIconUrl: string;
-    user: string;
-    timestamp: string;
-    isJoined: boolean;
-    title: string;
-    commentCount: number;
-    content: string;
-    videoSrc?: string;
-    postType: PostType;
-};
+    id: string,
+    voteCount: number,
+    subreddit: string,
+    subredditIconUrl: string,
+    user: string,
+    timestamp: string,
+    isJoined: boolean,
+    title?: string,
+    commentCount: number,
+    content: string,
+    url?:string,
+    videoSrc?: string,
+    thumbnail?:string,
+    postType: PostType
+}
 
 const Post = (props: PostProps) => {
-    const { voteCount, subreddit, user, timestamp, isJoined, title, commentCount, subredditIconUrl, content, postType } = props;
+    const { voteCount, subreddit, user, timestamp, isJoined, title, commentCount, subredditIconUrl, content, postType,url,thumbnail } = props;
 
     const renderContent = () => {
         if (postType === 'text') {
-            return <TextPost content={content} />;
+            return <TextPost content={content} />
         }
 
         if (postType === 'video') {
-            return <VideoPost content={content} />;
+            return <VideoPost content={content} />
         }
 
         if (postType === 'link') {
-            return;
+            if(url!==undefined){
+                return <LinkPost content={content} url={url} thumbnail={thumbnail}/>
+            }
         }
+
+        if (postType === 'gif') {              
+            return <GifPost content={content}/>
+    }
     };
 
     return (
