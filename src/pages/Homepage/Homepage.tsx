@@ -126,6 +126,48 @@ const Homepage = () => {
             postType: 'video',
             title: 'Guy Catches Tear Gas Shell Mid Air During Protest In Lahore, Pakistan',
         },
+        {
+            id: '3',
+            subredditIconUrl: 'https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png',
+            voteCount: 100,
+            subreddit: 'r/post',
+            user: 'myau123',
+            timestamp: new Date().toISOString(),
+            isJoined: false,
+            commentCount: 50,
+            url: 'https://people.com/pets/the-gorilla-family-harambe-left-behind/?amp=true',
+            content:
+                'TIL that Harambe’s mother, only full brother, and two of his half siblings were killed when a tub of wet chlorine tablets was left by a space heater. The toxic fumes were blown into the gorilla enclosure and killed the four gorillas.',
+            thumbnail: 'https://a.thumbs.redditmedia.com/iJhUw7Co_VUG4g1xwMZmoAk9tIF40bir4TWMVqiexn8.jpg',
+            postType: 'link',
+        },
+        {
+            id: '4',
+            subredditIconUrl: 'https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png',
+            voteCount: 100,
+            subreddit: 'r/post',
+            user: 'myau123',
+            timestamp: new Date().toISOString(),
+            isJoined: false,
+            commentCount: 50,
+            url: 'https://people.com/pets/the-gorilla-family-harambe-left-behind/?amp=true',
+            content:
+                'TIL that Harambe’s mother, only full brother, and two of his half siblings were killed when a tub of wet chlorine tablets was left by a space heater. The toxic fumes were blown into the gorilla enclosure and killed the four gorillas.',
+            postType: 'link',
+        },
+        {
+            id: '5',
+            subredditIconUrl: 'https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png',
+            voteCount: 100,
+            subreddit: 'r/post',
+            user: 'myau123',
+            timestamp: new Date().toISOString(),
+            isJoined: false,
+            commentCount: 50,
+            content: 'https://preview.redd.it/43181ffbycn51.gif?width=578&format=mp4&s=a419a19ec6d00a7686be71b1c28ee5f947ac5c45',
+            title: 'Seriously... Because the Shotpost Volume Is High',
+            postType: 'gif',
+        },
     ];
 
     return (
@@ -149,6 +191,8 @@ const Homepage = () => {
                                     commentCount={el.commentCount}
                                     content={el.content}
                                     postType={el.postType}
+                                    thumbnail={el.thumbnail}
+                                    url={el.url}
                                 />
                             );
                         })}

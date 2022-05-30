@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react';
 
-type TextPostProps = {
+export type TextPostProps = {
     content: string;
 };
 
