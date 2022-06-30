@@ -1,12 +1,27 @@
 import Searchbar from '../Searchbar/Searchbar';
 import UserSelect from '../UserSelect/UserSelect';
-import { Flex, Spacer, Button, ButtonGroup, Heading, Box, useMediaQuery } from '@chakra-ui/react'
+import { Flex, Spacer, Button, ButtonGroup, Heading, Box, useMediaQuery } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { ModalContext, ModalType } from '../../contexts/ModalContext';
 
 const Navbar = () => {
-    const [isWiderThan1180px] = useMediaQuery("(min-width: 1180px)");
+    const modalContext = useContext(ModalContext);
+    const [isWiderThan1180px] = useMediaQuery('(min-width: 1180px)');
 
     return (
-        <Box as={Flex} gap='2' alignItems={"center"} pl={5} pr={5} py={2.5} height="50px" bgColor="#FFFFFF" position="fixed" width="100vw">
+        <Box
+            as={Flex}
+            zIndex="1000"
+            gap="2"
+            alignItems={'center'}
+            pl={5}
+            pr={5}
+            py={2.5}
+            height="50px"
+            bgColor="#FFFFFF"
+            position="fixed"
+            width="100vw"
+        >
             <Heading size="sm">Reddit</Heading>
             <Spacer />
             <Searchbar />
@@ -14,8 +29,8 @@ const Navbar = () => {
             <ButtonGroup>
                 <Box
                     as={Button}
-                    size='sm'
-                    w={isWiderThan1180px ? "120px" : ""}
+                    size="sm"
+                    w={isWiderThan1180px ? '120px' : ''}
                     borderWidth="1px"
                     borderStyle="solid"
                     borderColor="#0079D3"
@@ -24,14 +39,15 @@ const Navbar = () => {
                     _hover={{ bg: '#DAE0E6' }}
                     _focus={{ outline: 'none', boxShadow: 'none' }}
                     _active={{ outline: 'none', boxShadow: 'none' }}
+                    onClick={() => modalContext.setCurrentModal(ModalType.LOGIN)}
                 >
                     Log In
                 </Box>
 
                 <Box
                     as={Button}
-                    size='sm'
-                    w={isWiderThan1180px ? "120px" : ""}
+                    size="sm"
+                    w={isWiderThan1180px ? '120px' : ''}
                     borderWidth="1px"
                     borderStyle="solid"
                     borderColor="#0079D3"
@@ -41,6 +57,7 @@ const Navbar = () => {
                     _hover={{ bg: '#0079D3' }}
                     _focus={{ outline: 'none', boxShadow: 'none' }}
                     _active={{ outline: 'none', boxShadow: 'none' }}
+                    onClick={() => modalContext.setCurrentModal(ModalType.SIGN_IN)}
                 >
                     Sign In
                 </Box>
