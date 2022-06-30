@@ -50,7 +50,8 @@ const TrendingCard = (props: TrendingCardProps) => {
             borderWidth="1px"
             borderStyle="solid"
             borderRadius="15px"
-            background={`${isLoading ? '#FFFFFF' : `url(${imgUrl}) center center / cover no-repeat #FFFFFF;`}`}
+            // background={`${isLoading ? '#FFFFFF' : `url(${imgUrl}) center center / cover no-repeat #FFFFFF;`}`}
+            background={`${isLoading ? '#FFFFFF' : `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(${imgUrl}) center center / cover no-repeat #FFFFFF;`}`}
         >
             <Box position="absolute" px="2.5" py="2.5" bottom="0">
                 {isLoading ? renderSkeleton() : renderInfo()}
