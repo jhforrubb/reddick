@@ -1,5 +1,6 @@
 import { createContext, useState } from 'react';
 import LoginModal from '../features/Modal/LoginModal';
+import SignUpModal from '../features/Modal/SignUpModal';
 
 export enum ModalType {
     CLOSED = 'closed',
@@ -25,6 +26,7 @@ export const ModalContextProvider = (props: ModalContextProps) => {
         <ModalContext.Provider value={{ currentModal, setCurrentModal }}>
             {props.children}
             <LoginModal isOpen={currentModal === ModalType.LOGIN} />
+            <SignUpModal isOpen={currentModal === ModalType.SIGN_IN} />
         </ModalContext.Provider>
     );
 };
