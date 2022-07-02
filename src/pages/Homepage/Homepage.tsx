@@ -2,7 +2,7 @@ import { communitiesJson, categoriesJson, postJson } from '../../sample/sample'
 import { Box, Stack } from '@chakra-ui/react';
 import TrendingBanner from '../../features/TrendingBanner/TrendingBanner';
 import MainLayout from '../../layouts/MainLayout';
-import Post, { PostType } from '../../features/Post/Post';
+import Post from '../../features/Post/Post';
 import TopCommunities from '../../features/TopCommunities/TopCommunities';
 import CategoryCard from '../../features/CategoryCard/CategoryCard';
 import SiteMap from '../../features/SiteMap/SiteMap';
@@ -28,7 +28,7 @@ const Homepage = () => {
                                     title={el.title}
                                     commentCount={el.commentCount}
                                     content={el.content}
-                                    postType={el.postType as PostType}
+                                    postType={el.postType}
                                     thumbnail={el.thumbnail}
                                     url={el.url}
                                 />

@@ -2,13 +2,15 @@ import { Text, Box, Link, Flex } from '@chakra-ui/react';
 import { ExternalLinkIcon, LinkIcon } from '@chakra-ui/icons';
 
 export type LinkPostProps = {
-    url: string;
+    url?: string;
     content: string;
     thumbnail?: string;
 };
 
 const LinkPost = (props: LinkPostProps) => {
     const { thumbnail, content, url } = props;
+
+    if (!url) return null;
 
     return (
         <Flex>

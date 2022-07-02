@@ -1,17 +1,22 @@
+import { useCallback } from 'react'
 import { Box, Flex, Text, Image, HStack, Icon } from '@chakra-ui/react';
 import { ArrowUpIcon, ArrowDownIcon } from '@chakra-ui/icons';
 import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import moment from 'moment';
 import PostUtilButton from './PostUtilButton';
 import TextPost from './TextPost';
 import VideoPost from './VideoPost';
 import LinkPost from './LinkPost';
 import GifPost from './GifPost';
 
-export type PostType = 'text' | 'video' | 'link'|'gif';
-
-
+export enum PostType {
+    TEXT = 'text',
+    VIDEO = 'video',
+    LINK = 'link',
+    GIF = 'gif',
+}
 
 export type PostProps = {
     id: string,
@@ -24,34 +29,32 @@ export type PostProps = {
     title?: string,
     commentCount: number,
     content: string,
-    url?:string,
+    url?: string,
     videoSrc?: string,
-    thumbnail?:string,
-    postType: PostType
+    thumbnail?: string,
+    postType: string,
 }
 
 const Post = (props: PostProps) => {
-    const { voteCount, subreddit, user, timestamp, isJoined, title, commentCount, subredditIconUrl, content, postType,url,thumbnail } = props;
+    const { voteCount, subreddit, user, timestamp, title, commentCount, subredditIconUrl, content, postType, url, thumbnail } = props;
 
-    const renderContent = () => {
-        if (postType === 'text') {
+    const renderContent = useCallback(() => {
+        if (postType === PostType.TEXT) {
             return <TextPost content={content} />
         }
 
-        if (postType === 'video') {
+        if (postType === PostType.VIDEO) {
             return <VideoPost content={content} />
         }
 
-        if (postType === 'link') {
-            if(url!==undefined){
-                return <LinkPost content={content} url={url} thumbnail={thumbnail}/>
-            }
+        if (postType === PostType.LINK) {
+            return <LinkPost content={content} url={url} thumbnail={thumbnail} />
         }
 
-        if (postType === 'gif') {              
-            return <GifPost content={content}/>
-    }
-    };
+        if (postType === PostType.GIF) {
+            return <GifPost content={content} />
+        }
+    }, [content, postType, thumbnail, url]);
 
     return (
         <Flex w="100%" direction="row" mb="15px" border="1px" borderRadius="5px" borderColor="gray.300" overflow="hidden">
@@ -74,7 +77,7 @@ const Post = (props: PostProps) => {
                         •{' '}
                     </Text>
                     <Text color="#787C7E" fontSize="12px">
-                        Posted by {`u/${user}`} {'8 hours ago'}
+                        Posted by {`u/${user}`} {moment.duration(timestamp).humanize(true)}
                     </Text>
                 </HStack>
                 <Text fontSize="18px" fontWeight="500" lineHeight="22px" pr="5px" color="#878A8C" my="10px">
