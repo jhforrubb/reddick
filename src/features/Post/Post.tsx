@@ -10,12 +10,14 @@ import TextPost from './TextPost';
 import VideoPost from './VideoPost';
 import LinkPost from './LinkPost';
 import GifPost from './GifPost';
+import ImagePost from './ImagePost';
 
 export enum PostType {
     TEXT = 'text',
     VIDEO = 'video',
     LINK = 'link',
     GIF = 'gif',
+    IMAGE = 'image',
 }
 
 export type PostProps = {
@@ -53,6 +55,10 @@ const Post = (props: PostProps) => {
 
         if (postType === PostType.GIF) {
             return <GifPost content={content} />
+        }
+
+        if (postType === PostType.IMAGE) {
+            return <ImagePost content={content} />
         }
     }, [content, postType, thumbnail, url]);
 

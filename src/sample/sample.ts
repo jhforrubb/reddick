@@ -169,6 +169,31 @@ export const postJson = [
         title: 'Seriously... Because the Shotpost Volume Is High',
         postType: 'gif',
     },
+    {
+        id: '6',
+        subredditIconUrl: 'https://b.thumbs.redditmedia.com/4ADRnu2cwKIkpQt0N-g36-iq6EfTNFVV1RComMcEZiU.png',
+        voteCount: 670,
+        subreddit: 'meirl',
+        user: 'SnooCupcakes8607',
+        timestamp: new Date().toISOString(),
+        isJoined: false,
+        commentCount: 4,
+        title: 'me irl',
+        content: 'https://preview.redd.it/fjhwe47qaa991.jpg?width=640&crop=smart&auto=webp&s=4c5fbd1ecaf52176ed98f1b01a5fb5030091ff4f',
+        postType: 'image',
+    },
+    {
+        id: '7',
+        subredditIconUrl: 'https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png',
+        voteCount: 1000,
+        subreddit: 'funny',
+        timestamp: new Date().toISOString(),
+        isJoined: false,
+        commentCount: 1,
+        user: 'ArgosLoops',
+        content: 'https://preview.redd.it/8iqrhwc2jc991.jpg?width=640&crop=smart&auto=webp&s=3904e5a00811e4bf087706e33f88d9707787ab78',
+        postType: 'image',
+    },
 ];
 
 export const trendingJson = [
