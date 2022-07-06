@@ -1,21 +1,19 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, BaseSyntheticEvent } from 'react';
 import { Box, Image } from '@chakra-ui/react';
 
 type ImagePostProps = {
-    content: string,
-}
+    content: string;
+};
 
 const ImagePost = (props: ImagePostProps) => {
     const { content } = props;
-    const [isHigherThan1000px, setIsHigherThan1000px] = useState<boolean>(false)
+    const [isHigherThan1000px, setIsHigherThan1000px] = useState<boolean>(false);
 
-    const imageRef = useCallback((node: HTMLImageElement) => {
-        if (node !== null) {
-            if (node.naturalHeight > 1000) {
-                setIsHigherThan1000px(true)
-            }
+    const handleImageLoad = (e: BaseSyntheticEvent) => {
+        if (e.currentTarget.naturalHeight > 1000) {
+            setIsHigherThan1000px(true);
         }
-    }, [])
+    };
 
     const renderZoomBtn = useCallback(() => {
         if (isHigherThan1000px) {
@@ -38,20 +36,20 @@ const ImagePost = (props: ImagePostProps) => {
                 >
                     see full image
                 </Box>
-            )
+            );
         }
 
         return null;
-    }, [isHigherThan1000px])
+    }, [isHigherThan1000px]);
 
     return (
         <Box maxH="512px" overflow="hidden" display="flex" justifyContent="center" position="relative">
             <Box>
-                <Image ref={imageRef} src={content} alt={content} maxH={isHigherThan1000px ? "none" : "512px"} />
+                <Image onLoad={handleImageLoad} src={content} alt={content} maxH={isHigherThan1000px ? 'none' : '512px'} />
             </Box>
             {renderZoomBtn()}
         </Box>
-    )
-}
+    );
+};
 
-export default ImagePost
+export default ImagePost;
