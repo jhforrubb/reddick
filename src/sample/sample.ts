@@ -196,6 +196,55 @@ export const postJson = [
     },
 ];
 
+export const postCommentsJson = [
+    {
+        id: '1',
+        subredditIconUrl: 'https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png',
+        voteCount: 100,
+        subreddit: 'r/post',
+        user: 'myau123',
+        timestamp: new Date().toISOString(),
+        isJoined: false,
+        commentCount: 50,
+        content:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        postType: 'text',
+        title: 'Better Call Saul S06E07 - [Mid-Season Finale] Plan and Execution - Post-Episode Discussion Thread',
+        comments: [
+            {
+                id: '123',
+                content: 'Dummy Text',
+                user: 'dsfdsd',
+                upvote: 5,
+                downvote: 1,
+                timestamp: new Date().toISOString(),
+                comments: [
+                    {
+                        id: '3214',
+                        content:
+                            'One thing I like to do when I stop using my social media account is generating an super random password and encrypting it using some encrypt softwares. So when I want to log in again, I have to take a long way to obtain it. Usually I give up in the process.',
+                        user: 'qweqwe',
+                        upvote: 5,
+                        downvote: 1,
+                        timestamp: new Date().toISOString(),
+                        comments: [
+                            {
+                                id: '123',
+                                content:
+                                    'Delete all social media. Don’t turn it off or suspend it. Cancel that shit. Commit. Cancel. Delete accounts. If you can’t do that, delete the apps. I’ve ran my iPhone in black and white mode before to make it boring. That worked pretty decent too. Whatever you’ve leaned on your phone to do, start pulling some of that back into the physical world. You use your phones calendar, they still make paper ones. Need to text a friend, you can still write letters. More hobbies helps too, then you can read books about other things. Coloring books are fun. Become a movie buff. Don’t listen to music on a device, get a record collection going. Do a physical activity that requires both hands and feet. So on and so forth.',
+                                user: 'dsfdsd',
+                                upvote: 5,
+                                downvote: 1,
+                                timestamp: new Date().toISOString(),
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+];
+
 export const trendingJson = [
     {
         id: 0,

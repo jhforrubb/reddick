@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback } from 'react';
 import { Box, Flex, Text, Image, HStack, Icon } from '@chakra-ui/react';
 import { ArrowUpIcon, ArrowDownIcon } from '@chakra-ui/icons';
 import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
@@ -6,11 +6,12 @@ import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import moment from 'moment';
 import PostUtilButton from './PostUtilButton';
-import TextPost from './TextPost';
-import VideoPost from './VideoPost';
-import LinkPost from './LinkPost';
-import GifPost from './GifPost';
-import ImagePost from './ImagePost';
+// import TextPost from './TextPost';
+// import VideoPost from './VideoPost';
+// import LinkPost from './LinkPost';
+// import GifPost from './GifPost';
+// import ImagePost from './ImagePost';
+import { CommentProps } from '../../pages/ViewPost/Comment';
 
 export enum PostType {
     TEXT = 'text',
@@ -20,50 +21,84 @@ export enum PostType {
     IMAGE = 'image',
 }
 
-export type PostProps = {
-    id: string,
-    voteCount: number,
-    subreddit: string,
-    subredditIconUrl: string,
-    user: string,
-    timestamp: string,
-    isJoined: boolean,
-    title?: string,
-    commentCount: number,
-    content: string,
-    url?: string,
-    videoSrc?: string,
-    thumbnail?: string,
-    postType: string,
+export interface Posts {
+    id: string;
+    voteCount: number;
+    subreddit: string;
+    subredditIconUrl: string;
+    user: string;
+    timestamp: string;
+    isJoined: boolean;
+    title?: string;
+    commentCount: number;
+    content: string;
+    url?: string;
+    videoSrc?: string;
+    thumbnail?: string;
+    postType: string;
 }
 
+export interface PostProps extends Posts {
+    postView: boolean;
+    children: React.ReactNode;
+    comments?: Array<CommentProps>;
+}
+
+// export type PostProps = {
+
+//     id: string;
+//     voteCount: number;
+//     subreddit: string;
+//     subredditIconUrl: string;
+//     user: string;
+//     timestamp: string;
+//     isJoined: boolean;
+//     title?: string;
+//     commentCount: number;
+//     content: string;
+//     url?: string;
+//     videoSrc?: string;
+//     thumbnail?: string;
+//     postType: string;
+// };
+
 const Post = (props: PostProps) => {
-    const { voteCount, subreddit, user, timestamp, title, commentCount, subredditIconUrl, content, postType, url, thumbnail } = props;
+    const { voteCount, subreddit, user, timestamp, title, commentCount, subredditIconUrl, postView } = props;
+    // const { voteCount, subreddit, user, timestamp, title, commentCount, subredditIconUrl, content, postType, url, thumbnail } = props;
 
-    const renderContent = useCallback(() => {
-        if (postType === PostType.TEXT) {
-            return <TextPost content={content} />
-        }
+    // const renderContent = useCallback(() => {
+    //     if (postType === PostType.TEXT) {
+    //         return <TextPost content={content} />;
+    //     }
 
-        if (postType === PostType.VIDEO) {
-            return <VideoPost content={content} />
-        }
+    //     if (postType === PostType.VIDEO) {
+    //         return <VideoPost content={content} />;
+    //     }
 
-        if (postType === PostType.LINK) {
-            return <LinkPost content={content} url={url} thumbnail={thumbnail} />
-        }
+    //     if (postType === PostType.LINK) {
+    //         return <LinkPost content={content} url={url} thumbnail={thumbnail} />;
+    //     }
 
-        if (postType === PostType.GIF) {
-            return <GifPost content={content} />
-        }
+    //     if (postType === PostType.GIF) {
+    //         return <GifPost content={content} />;
+    //     }
 
-        if (postType === PostType.IMAGE) {
-            return <ImagePost content={content} />
-        }
-    }, [content, postType, thumbnail, url]);
+    //     if (postType === PostType.IMAGE) {
+    //         return <ImagePost content={content} />;
+    //     }
+    // }, [content, postType, thumbnail, url]);
 
     return (
-        <Flex w="100%" direction="row" mb="15px" border="1px" borderRadius="5px" borderColor="gray.300" overflow="hidden">
+        <Flex
+            w="100%"
+            direction="row"
+            mb="15px"
+            border={postView ? '' : '1px'}
+            borderRadius="5px"
+            borderColor={postView ? '' : 'gray.300'}
+            overflow="hidden"
+            _hover={postView ? {} : { cursor: 'pointer', borderColor: 'gray.500' }}
+        >
             <Flex w="40px" direction="column" alignItems="center" bgColor="rgba(255,255,255, 0.5)" py="8px">
                 <ArrowUpIcon cursor="pointer" onClick={() => console.log('it should upvote')} />
                 <Text color="#1A1A1B" fontSize="12px" fontWeight="700" lineHeight="16px" pointerEvents="none" wordBreak="normal" my="5px">
@@ -89,7 +124,8 @@ const Post = (props: PostProps) => {
                 <Text fontSize="18px" fontWeight="500" lineHeight="22px" pr="5px" color="#878A8C" my="10px">
                     {title}
                 </Text>
-                {renderContent()}
+                {/* {renderContent()}  */}
+                {props.children}
                 <HStack>
                     <PostUtilButton
                         icon={ChatBubbleOutlineOutlinedIcon}
