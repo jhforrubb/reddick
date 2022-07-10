@@ -24,7 +24,7 @@ import {
 import { SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import TextEditor from './TextEditor';
 
-function CreatePost() {
+function Submit() {
     return (
         <>
             <Box pt="70px">
@@ -74,4 +74,4 @@ function CreatePost() {
     );
 }
 
-export default CreatePost;
+export default Submit;
